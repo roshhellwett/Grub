@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "projectgrub"
+version = "1.0.0"
+description = "Interactive GRUB theme manager for Linux - Browse, install, and manage GRUB boot themes"
+readme = "readme.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    {name = "Roshan Kr Singh - Zenith Open Source Projects", email = "roshellwett@icloud.com"}
+]
+keywords = ["grub", "theme", "boot", "linux", "bootloader", "customization"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "typer[all]>=0.12.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+projectgrub = "projectgrub.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/zenithopensourceprojects/projectgrub"
+Repository = "https://github.com/zenithopensourceprojects/projectgrub"
+Documentation = "https://github.com/zenithopensourceprojects/projectgrub#readme"
+Issues = "https://github.com/zenithopensourceprojects/projectgrub/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["projectgrub*"]
+
+[tool.setuptools.package-data]
+projectgrub = ["py.typed"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
