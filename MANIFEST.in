@@ -1,0 +1,7 @@
+include LICENSE
+include readme.md
+include CHANGELOG.md
+include CONTRIBUTING.md
+recursive-include src/projectgrub/themes *
+recursive-include src/projectgrub *.py *.typed
+recursive-include tests *.py

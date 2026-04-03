@@ -24,6 +24,11 @@ pip install projectgrub
 python -m projectgrub start
 ```
 
+### Step 4: Update (Optional)
+```bash
+projectgrub update
+```
+
 That's it! The tool will guide you through everything.
 
 ---
@@ -54,6 +59,17 @@ python -m projectgrub start
 
 ---
 
+## 💻 CLI Commands
+
+```bash
+projectgrub start         # Launch interactive menu
+projectgrub list          # List all available themes
+projectgrub info <name>   # Show theme details
+projectgrub update        # Update to latest version
+```
+
+---
+
 ## 🎯 Menu Options
 
 | Option | Description |
@@ -68,6 +84,7 @@ python -m projectgrub start
 | **8. Contribute Guide** | Learn how to add new themes |
 | **9. Refresh Themes** | Reload themes from disk |
 | **10. Help** | Documentation and tips |
+| **U. Check Updates** | Check for new versions |
 | **0. Exit** | Exit the application |
 
 ---

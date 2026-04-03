@@ -1,5 +1,7 @@
 """Interactive CLI for ProjectGRUB."""
 
+import sys
+
 import typer
 from rich.console import Console
 from rich.markdown import Markdown
@@ -132,7 +134,7 @@ class MenuState:
             ("7", "Theme Validation", "Validate a theme before install"),
             ("8", "Contribute Guide", "Learn how to add new themes"),
             ("9", "Refresh Themes", "Reload themes from disk"),
-            ("10", "Help", "Documentation and tips"),
+            ("U", "Check Updates", "Check for updates"),
             ("0", "Exit", "Exit ProjectGRUB"),
         ]
 
@@ -758,6 +760,7 @@ Other distributions may work but are not officially tested.
                         "8": self.handle_contribute,
                         "9": self.handle_refresh,
                         "10": self.handle_help,
+                        "U": self.handle_check_updates,
                         "0": self._exit,
                     }
 
@@ -786,6 +789,49 @@ Other distributions may work but are not officially tested.
         console.print()
         console.print("[cyan]Thank you for using ProjectGRUB![/]")
         console.print("[dim]Made with love for the Linux community[/]\n")
+
+    def handle_check_updates(self) -> None:
+        """Handle check updates option."""
+        clear_screen()
+        print_menu_header("Check for Updates")
+
+        console.print(f"\n[cyan]Current version:[/] [bold]{__version__}[/]\n")
+        console.print("[yellow]Checking for updates...[/]\n")
+
+        try:
+            import subprocess
+
+            result = subprocess.run(
+                [sys.executable, "-m", "pip", "index", "versions", PACKAGE_NAME],
+                capture_output=True,
+                text=True,
+                timeout=30,
+            )
+
+            if result.returncode == 0:
+                output = result.stdout
+                if "Available versions:" in output:
+                    lines = output.split("\n")
+                    for line in lines:
+                        if "Available versions:" in line:
+                            versions_str = line.split("Available versions:")[-1].strip()
+                            console.print(f"[green]Latest version:[/] {versions_str}\n")
+                            break
+                    else:
+                        console.print("[yellow]Could not parse version info.[/]\n")
+                else:
+                    console.print("[yellow]Package info not found.[/]\n")
+            else:
+                console.print("[red]Failed to check for updates.[/]\n")
+                console.print(f"[dim]Error: {result.stderr.strip()}[/]\n")
+
+        except subprocess.TimeoutExpired:
+            console.print("[red]Connection timed out.[/]\n")
+        except Exception as e:
+            console.print(f"[red]Error checking updates:[/] {e}\n")
+
+        console.print("[dim]To update, run:[/] pip install --upgrade projectgrub\n")
+        pause()
 
 
 @app.callback(invoke_without_command=True)
@@ -854,6 +900,48 @@ def check():
     """Run system checks without launching menu."""
     state = MenuState()
     state.run_preflight(verbose=True)
+
+
+@app.command()
+def update():
+    """Update ProjectGRUB to the latest version."""
+    import subprocess
+
+    from projectgrub import __version__
+
+    console.print()
+    console.print(f"[cyan]Current version:[/] {__version__}")
+    console.print("[cyan]Checking for updates...[/]")
+    console.print()
+
+    try:
+        result = subprocess.run(
+            [sys.executable, "-m", "pip", "install", "--upgrade", "projectgrub"],
+            capture_output=True,
+            text=True,
+        )
+
+        if result.returncode == 0:
+            console.print("[green]Successfully updated ProjectGRUB![/]")
+            console.print("[dim]Please restart the application to use the new version.[/]")
+        else:
+            console.print("[red]Update failed![/]")
+            if result.stderr:
+                console.print(f"[dim]{result.stderr}[/]")
+    except Exception as e:
+        console.print(f"[red]Error during update:[/] {e}")
+
+    console.print()
+
+
+@app.command()
+def version():
+    """Show ProjectGRUB version."""
+    from projectgrub import __version__
+
+    console.print()
+    console.print(f"[bold cyan]ProjectGRUB[/] version [yellow]{__version__}[/]")
+    console.print()
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
 
 import logging
 
-__version__ = "1.0.0"
+__version__ = "1.0.2"
 __author__ = "roshellwett"
 __email__ = "roshellwett@icloud.com"
 __copyright__ = "Zenith Open Source Projects"

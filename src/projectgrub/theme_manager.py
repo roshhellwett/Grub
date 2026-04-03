@@ -145,13 +145,19 @@ class ThemeManager:
         self._cache: ThemeCollection | None = None
 
     def _find_themes_dir(self) -> str:
-        """Find the themes directory in the package."""
+        """Find the themes directory."""
         current = Path(__file__).parent
+
+        themes_in_package = current / "themes"
+        if themes_in_package.exists():
+            return str(themes_in_package)
+
         project_root = current.parent.parent
         themes_path = project_root / "themes"
         if themes_path.exists():
             return str(themes_path)
-        return str(current.parent.parent / "themes")
+
+        return str(themes_in_package)
 
     def discover_themes(self, force_refresh: bool = False) -> ThemeCollection:
         """Discover all themes in the themes directory."""
