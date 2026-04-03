@@ -59,7 +59,7 @@ def print_header(message: str) -> None:
     width = get_terminal_width()
     console.print()
     console.print(f"[bold cyan]{'=' * width}[/]")
-    console.print(f"[bold cyan]│[/] {message.center(width - 4)} [bold cyan]│[/]")
+    console.print(f"[bold cyan]|[/] {message.center(width - 4)} [bold cyan]|[/]")
     console.print(f"[bold cyan]{'=' * width}[/]")
     console.print()
 
@@ -76,7 +76,7 @@ def print_menu_header(message: str) -> None:
     """Print a menu header with border."""
     width = get_terminal_width()
     left = f"[bold cyan]+{'-' * (width - 2)}+[/]"
-    middle = f"[bold cyan]│[/] [bold white]{message.center(width - 4)}[/] [bold cyan]│[/]"
+    middle = f"[bold cyan]|[/] [bold white]{message.center(width - 4)}[/] [bold cyan]|[/]"
     console.print()
     console.print(left)
     console.print(middle)

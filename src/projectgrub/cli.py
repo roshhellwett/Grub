@@ -438,11 +438,11 @@ class MenuState:
         else:
             print_error("Installation failed!")
             for error in result.errors:
-                console.print(f"  [red]• {error}[/]")
+                console.print(f"  [red]- {error}[/]")
             if result.warnings:
                 console.print()
                 for warning in result.warnings:
-                    console.print(f"  [yellow]• {warning}[/]")
+                    console.print(f"  [yellow]- {warning}[/]")
 
     def handle_uninstall(self) -> None:
         """Handle uninstall option."""
@@ -475,7 +475,7 @@ class MenuState:
             else:
                 print_error("Uninstallation failed!")
                 for error in result.errors:
-                    console.print(f"  [red]• {error}[/]")
+                    console.print(f"  [red]- {error}[/]")
 
         console.print()
         pause()
@@ -819,7 +819,7 @@ def list():
     for name in themes.unique_names:
         theme_themes = themes.get_by_name(name)
         resolutions = [t.resolution for t in theme_themes]
-        console.print(f"  [yellow]•[/] [bold]{name}[/] ({', '.join(resolutions)})")
+        console.print(f"  [yellow]-[/] [bold]{name}[/] ({', '.join(resolutions)})")
 
     console.print()
     console.print(

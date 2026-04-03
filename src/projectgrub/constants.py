@@ -52,11 +52,11 @@ BANNER = r"""
 """
 
 BANNER_ART = """
-[bold cyan]╔══════════════════════════════════════════════════════════════╗[/]
-[bold cyan]║[/]              [bold white]ProjectGRUB - GRUB Theme Manager[/]                 [bold cyan]║[/]
-[bold cyan]╠══════════════════════════════════════════════════════════════╣[/]
-[bold cyan]║[/]  [dim]The ultimate tool to customize your Linux boot loader[/]       [bold cyan]║[/]
-[bold cyan]╚══════════════════════════════════════════════════════════════╝[/]
+[bold cyan]+====================================================================+[/]
+[bold cyan]|[/]              [bold white]ProjectGRUB - GRUB Theme Manager[/]                 [bold cyan]|[/]
+[bold cyan]+====================================================================+[/]
+[bold cyan]|[/]  [dim]The ultimate tool to customize your Linux boot loader[/]       [bold cyan]|[/]
+[bold cyan]+====================================================================+[/]
 """
 
 REQUIRED_THEME_FILES = ["theme.txt"]
