@@ -61,3 +61,6 @@ Thumbs.db
 # Project specific
 *.bak
 *.backup
+
+# Agent session state (local only)
+AGENTS.md
