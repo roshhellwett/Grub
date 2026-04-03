@@ -1,12 +1,3 @@
-# Contributing to ProjectGRUB
-
-**Developer:** roshhellwett  
-**Copyright:** Zenith Open Source Projects
-
-Thank you for your interest in contributing to ProjectGRUB! This document provides guidelines and instructions for contributing.
-
-## Ways to Contribute
-
 ### 1. Add New Themes
 The easiest way to contribute is to add your own GRUB theme to the `themes/` folder.
 
@@ -117,19 +108,5 @@ pytest tests/ --cov=src/projectgrub
 # Run specific test file
 pytest tests/test_validators.py -v
 ```
-
-## Pull Request Process
-
-1. Update documentation if needed
-2. Add tests for new features
-3. Ensure all tests pass
-4. Update CHANGELOG.md if applicable
-5. Request review from maintainers
-
-## Questions?
-
-Feel free to open an issue for questions or discussions.
-
----
 
 Thank you for contributing to ProjectGRUB! 🎉
