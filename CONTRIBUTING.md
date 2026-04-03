@@ -1,5 +1,8 @@
 # Contributing to ProjectGRUB
 
+**Developer:** roshhellwett  
+**Copyright:** Zenith Open Source Projects
+
 Thank you for your interest in contributing to ProjectGRUB! This document provides guidelines and instructions for contributing.
 
 ## Ways to Contribute

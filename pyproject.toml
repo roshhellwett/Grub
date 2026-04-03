@@ -10,7 +10,10 @@ readme = "readme.md"
 license = "MIT"
 requires-python = ">=3.10"
 authors = [
-    {name = "Roshan Kr Singh - Zenith Open Source Projects", email = "roshellwett@icloud.com"}
+    {name = "Roshan Kr Singh", email = "roshellwett@icloud.com"}
+]
+maintainers = [
+    {name = "Roshan Kr Singh", email = "roshellwett@icloud.com"}
 ]
 keywords = ["grub", "theme", "boot", "linux", "bootloader", "customization"]
 classifiers = [
@@ -43,6 +46,7 @@ Homepage = "https://github.com/zenithopensourceprojects/projectgrub"
 Repository = "https://github.com/zenithopensourceprojects/projectgrub"
 Documentation = "https://github.com/zenithopensourceprojects/projectgrub#readme"
 Issues = "https://github.com/zenithopensourceprojects/projectgrub/issues"
+Funding = "https://zenithopensourceprojects.vercel.app/"
 
 [tool.setuptools.packages.find]
 where = ["src"]

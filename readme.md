@@ -1,6 +1,6 @@
-<!-- 🧩 PROJECT GRUB README — By Rosh Hellwett -->
+<!-- PROJECT GRUB README -->
 
-<h1 align="center">✨ PROJECT GRUB — GRUB Theme Manager ✨</h1>
+<h1 align="center">PROJECT GRUB - GRUB Theme Manager</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-Linux-2ea44f?style=for-the-badge&logo=linux&logoColor=white" />
@@ -9,10 +9,15 @@
   <img src="https://img.shields.io/badge/Status-Stable-success?style=for-the-badge" />
 </p>
 
+<p align="center">
+  <strong>Developer:</strong> roshhellwett<br/>
+  <strong>Copyright:</strong> Zenith Open Source Projects
+</p>
+
 ---
 
 <p align="center">
-  <em>"The ultimate tool to customize your Linux boot loader." 💻🖌️</em>
+  <em>The ultimate tool to customize your Linux boot loader.</em>
 </p>
 
 ---

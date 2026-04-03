@@ -3,8 +3,9 @@
 import logging
 
 __version__ = "1.0.0"
-__author__ = "Roshan Kr Singh"
+__author__ = "roshellwett"
 __email__ = "roshellwett@icloud.com"
+__copyright__ = "Zenith Open Source Projects"
 
 from projectgrub.exceptions import (
     GRUBConfigError,
